@@ -3,10 +3,10 @@ version: "3.5"
 x-environment:
   &default-back-environment
   # Database settings
-  POSTGRES_DB: taiga
-  POSTGRES_USER: taiga
-  POSTGRES_PASSWORD: taiga
-  POSTGRES_HOST: taiga-db
+  POSTGRES_DB: ${POSTGRES_DB}
+  POSTGRES_USER: ${POSTGRES_USER}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  POSTGRES_HOST: ${POSTGRES_HOST}
   # Taiga settings
   TAIGA_SECRET_KEY: "taiga-back-secret-key"
   TAIGA_SITES_SCHEME: "http"
@@ -39,9 +39,9 @@ services:
   taiga-db:
     image: postgres:12.3
     environment:
-      POSTGRES_DB: taiga
-      POSTGRES_USER: taiga
-      POSTGRES_PASSWORD: taiga
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - taiga-db-data:/var/lib/postgresql/data
     networks:
